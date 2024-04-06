@@ -30,8 +30,8 @@ echo $html > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test /data/web_static/current
 
 
-chown -R ubuntu /data/
-chgrp -R ubuntu /data/
+sudo chown -R ubuntu:ubuntu /data/
+sudo chgrp -R ubuntu:ubuntu /data/
 
 printf %s "server {
 	listen 80 default_server;
@@ -60,6 +60,6 @@ printf %s "server {
 
 echo -e "Restarting the Nginx service"
 
-service nginx restart
+sudo systemctl restart nginx
 
 echo -e "\nCompleted. ✅\n"
