@@ -43,7 +43,7 @@ echo -e "Updating the Server configuration\n"
 printf %s "server {
 	listen 80 default_server;
 	listen [::]:80 defualt_server;
-	add_header X-Served-By $HOSTNAME;
+	add_header X-Served-By $hostname;
 	root /var/www/html;
 	index index.html index.htm;
 
