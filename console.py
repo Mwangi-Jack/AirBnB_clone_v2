@@ -115,13 +115,24 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ Create an object of any class"""
+        args_arr = args.split(" ")
+
         if not args:
             print("** class name missing **")
             return
-        elif args not in HBNBCommand.classes:
+        elif args_arr[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        new_instance = HBNBCommand.classes[args]()
+        new_instance = HBNBCommand.classes[args_arr[0]]()
+
+        """This is where I left
+            I wantent to iterate over the list of arguments
+            while assigning the new instance the attributes
+        """
+        for i in range(1, len(args_arr)):
+            key, value = args_arr[i].split("=")
+            new_instance = value
+
         storage.save()
         print(new_instance.id)
         storage.save()
@@ -135,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
         """ Method to show an individual object """
         new = args.partition(" ")
         c_name = new[0]
-        c_id = new[2]
+        c_id = new[2]z=
 
         # guard against trailing args
         if c_id and ' ' in c_id:
