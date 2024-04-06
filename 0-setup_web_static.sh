@@ -57,9 +57,4 @@ printf %s "server {
 
 }" > /etc/nginx/sites-available/default
 
-
-echo -e "Restarting the Nginx service"
-
 service nginx restart
-
-echo -e "\nCompleted. ✅\n"
