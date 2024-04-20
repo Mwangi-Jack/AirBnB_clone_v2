@@ -16,13 +16,13 @@ def hello():
     """
     return "Hello HBNB!"
 
+
 @app.route('/hbnb')
 def hbnb():
     """
     On route /hbnb this function returns the strin 'HBNB'
     """
     return "HBNB"
-
 
 
 if __name__ == '__main__':
