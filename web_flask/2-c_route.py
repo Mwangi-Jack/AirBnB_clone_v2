@@ -4,6 +4,7 @@ This script start a Flask web application
 The web application is expected to listen on 0.0.0.0 port 5000
 """
 
+from email.policy import strict
 from flask import Flask
 
 app = Flask(__name__)
@@ -25,7 +26,7 @@ def hbnb():
     return "HBNB"
 
 
-@app.route('/c/<text>')
+@app.route('/c/<text>', strict_slashes=False)
 def cfun(text):
     """
     On route /c/<text> this function returns  a dynamic string
