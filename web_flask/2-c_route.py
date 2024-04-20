@@ -32,7 +32,7 @@ def cfun(text):
     On route /c/<text> this function returns  a dynamic string
     depending on te passed text on the url
     """
-    return f"C {text}"
+    return f"C {text.replace('_', ' ')}"
 
 
 if __name__ == '__main__':
