@@ -10,8 +10,21 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    def all(self):
-        """Returns the dictionary representation of __objects"""
+    def all(self, cls=None):
+        """
+        Returns the dictionary representation of __objects
+        It also returns object of a specific class  if 'cls' is not None
+        """
+        if cls is not None :
+            objs = {}
+            if isinstance(cls, str):
+                cls = eval(cls)
+
+            for key, value in self.__objects.items():
+                if type(value) == cls:
+                    objs[key] = value
+            return objs
+
         return self.__objects
 
     def new(self, obj):
@@ -49,3 +62,14 @@ class FileStorage:
                                         fromlist=[class_name])
                     cls = getattr(module, class_name)
                     self.__objects[key] = cls(**value)
+
+
+    def delete(self, obj=None):
+        """
+        This method deletes an object passed to it  and does nothing
+        if the object passed to it is None
+        """
+
+        if obj is not None:
+            key = f"{type(obj).__name__}.{obj.id}"
+            del self.__objects[key]

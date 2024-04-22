@@ -1,22 +1,26 @@
 {
-    "State.65540b3e-325b-4166-a452-39f4e93bf659": {
-        "name": "California",
-        "created_at": "2024-04-22T16:34:16.423516",
-        "updated_at": "2024-04-22T16:34:16.423533",
-        "id": "65540b3e-325b-4166-a452-39f4e93bf659"
+    "State.98f5d4eb-d426-44e1-b38f-75ce7a1ef3e7": {
+        "id": "98f5d4eb-d426-44e1-b38f-75ce7a1ef3e7",
+        "created_at": "2024-04-22T18:14:29.671030",
+        "updated_at": "2024-04-22T18:14:29.671059",
+        "name": "California"
     },
-    "Place.55715e4f-3f7a-4d6c-8e55-e6796fea24f2": {
-        "city_id": "0001",
-        "user_id": "0001",
-        "name": "My little house",
-        "number_rooms": 4,
-        "number_bathrooms": 2,
-        "max_guest": 10,
-        "price_by_night": 300,
-        "latitude": 37.773972,
-        "longitude": -122.431297,
-        "created_at": "2024-04-22T16:36:23.725485",
-        "updated_at": "2024-04-22T16:36:23.725494",
-        "id": "55715e4f-3f7a-4d6c-8e55-e6796fea24f2"
+    "State.020fab5f-967d-451d-b17a-a425dc94560a": {
+        "id": "020fab5f-967d-451d-b17a-a425dc94560a",
+        "created_at": "2024-04-22T18:14:29.671390",
+        "updated_at": "2024-04-22T18:14:29.671395",
+        "name": "Nevada"
+    },
+    "State.21764c2b-0b94-4826-963e-76535619d3f7": {
+        "id": "21764c2b-0b94-4826-963e-76535619d3f7",
+        "created_at": "2024-04-22T18:22:14.126169",
+        "updated_at": "2024-04-22T18:22:14.126174",
+        "name": "California"
+    },
+    "State.f46aebb2-3d80-4007-ba2a-99044dc5d7ba": {
+        "id": "f46aebb2-3d80-4007-ba2a-99044dc5d7ba",
+        "created_at": "2024-04-22T18:22:14.126673",
+        "updated_at": "2024-04-22T18:22:14.126678",
+        "name": "Nevada"
     }
 }
