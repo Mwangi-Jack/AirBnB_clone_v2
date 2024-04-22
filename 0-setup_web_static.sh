@@ -35,28 +35,26 @@ sudo chgrp -R ubuntu:ubuntu /data/
 
 printf %s "server {
 	listen 80 default_server;
-	listen [::]:80 defualt_server;
-	add_header X-Served-By $hostname;
+	listen [::]:80 default_server;
+	 rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+
+	error_page 404 /404.html;
+    	add_header X-Served-By $hostname;
+
+
 	root /var/www/html;
-	index index.html index.htm;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
 
 	location /hbnb_static {
-		alias /index/web_static/current;
+		alias /data/web_static/current/;
 		index index.html index.htm;
 	}
 
-	location /redirect_me {
-		return 301 http://cuberule.com/;
-	}
-
-	error_page 404 /404.html;
-	location /404 {
-		root /var/www/html;
-		internal;
-	}
-
 }" > /etc/nginx/sites-available/default
-
 
 echo -e "Restarting the Nginx service"
 

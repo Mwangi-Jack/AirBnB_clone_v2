@@ -1,11 +1,16 @@
 #!/usr/bin/python3
-"""This module defines a class User"""
+
 from models.base_model import BaseModel
+from models import storage
 
 
 class User(BaseModel):
-    """This class defines a user by various attributes"""
-    email = ''
-    password = ''
-    first_name = ''
-    last_name = ''
+    """This is the user class which inherits from BaseModel class"""
+    email: str = ""
+    password = ""
+    first_name = ""
+    last_name = ""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__()
+        storage.new(self)

@@ -1,1 +1,1 @@
-This directory implements webpage design.
+# 0x01. AirBnB Clone - Web Static
