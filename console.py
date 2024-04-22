@@ -56,7 +56,20 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        new_inst = classes[args[0]]()
+        obj = {}
+        for arg in args[1:]:
+            key, value = arg.split('=')
+
+            try:
+                value = int(value)
+            except ValueError:
+                try:
+                    value = float(value)
+                except ValueError:
+                    value = value.strip('"').replace('_', ' ')
+            obj[key] = value
+
+        new_inst = classes[args[0]](**obj)
         new_inst.save()
         print(new_inst.id)
 

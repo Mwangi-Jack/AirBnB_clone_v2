@@ -20,4 +20,4 @@ class Place(BaseModel):
     amenity_ids = ()
 
     def __init__(self, *args, **kwargs):
-        super().__init__()
+        super().__init__(**kwargs)

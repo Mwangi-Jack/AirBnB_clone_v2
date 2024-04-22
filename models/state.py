@@ -10,4 +10,4 @@ class State(BaseModel):
     name = ""
 
     def __init__(self, *args, **kwargs):
-        super().__init__()
+        super().__init__(**kwargs)
