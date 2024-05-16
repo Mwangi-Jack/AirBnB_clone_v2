@@ -10,6 +10,7 @@ from models.city import City
 # myMetaData = MetaData()
 # Base = declarative_base(metadata=myMetaData)
 
+
 class State(BaseModel, Base):
     """Class State inheriting from the BaseModel class"""
 

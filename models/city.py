@@ -8,7 +8,6 @@ from models.base_model import BaseModel, Base
 import models
 
 
-
 class City(BaseModel, Base):
     """Class City inheriting from the BaseModel class"""
 
