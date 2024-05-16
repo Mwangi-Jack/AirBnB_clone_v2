@@ -4,7 +4,6 @@ This script start a Flask web application
 The web application is expected to listen on 0.0.0.0 port 5000
 """
 
-from email.policy import strict
 from flask import Flask
 from flask import render_template
 
