@@ -15,7 +15,7 @@ class FileStorage:
         Returns the dictionary representation of __objects
         It also returns object of a specific class  if 'cls' is not None
         """
-        if cls is not None :
+        if cls is not None:
             objs = {}
             if isinstance(cls, str):
                 cls = eval(cls)
@@ -71,7 +71,6 @@ class FileStorage:
         # except FileNotFoundError:
         #     pass
 
-
     def delete(self, obj=None):
         """
         This method deletes an object passed to it  and does nothing
@@ -82,3 +81,9 @@ class FileStorage:
             key = f"{type(obj).__name__}.{obj.id}"
             del self.__objects[key]
 
+    def close(self):
+        """
+        This method calls reload() method for deseializing the JSON
+        file to objects
+        """
+        self.reload()
