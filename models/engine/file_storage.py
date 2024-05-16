@@ -62,14 +62,6 @@ class FileStorage:
                                         fromlist=[class_name])
                     cls = getattr(module, class_name)
                     self.__objects[key] = cls(**value)
-        # try:
-        #     with open(self.__file_path, "r", encoding="utf-8") as f:
-        #         for o in json.load(f).values():
-        #             name = o["__class__"]
-        #             del o["__class__"]
-        #             self.new(eval(name)(**o))
-        # except FileNotFoundError:
-        #     pass
 
     def delete(self, obj=None):
         """
