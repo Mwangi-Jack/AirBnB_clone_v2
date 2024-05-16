@@ -21,7 +21,7 @@ class FileStorage:
                 cls = eval(cls)
 
             for key, value in self.__objects.items():
-                if type(value) == cls:
+                if isinstance(value, cls):
                     objs[key] = value
             return objs
 
@@ -62,6 +62,14 @@ class FileStorage:
                                         fromlist=[class_name])
                     cls = getattr(module, class_name)
                     self.__objects[key] = cls(**value)
+        # try:
+        #     with open(self.__file_path, "r", encoding="utf-8") as f:
+        #         for o in json.load(f).values():
+        #             name = o["__class__"]
+        #             del o["__class__"]
+        #             self.new(eval(name)(**o))
+        # except FileNotFoundError:
+        #     pass
 
 
     def delete(self, obj=None):
@@ -74,15 +82,3 @@ class FileStorage:
             key = f"{type(obj).__name__}.{obj.id}"
             del self.__objects[key]
 
-    def cities(self, state_id):
-        """
-        Returns the list of 'City' instances with 'state_id' equal to
-        the current 'State.id'
-        """
-        state_cities = []
-
-        for city_data in self.__objects.values():
-            if city_data.get('state_id') == state_id:
-                state_cities.append(city_data)
-
-        return state_cities
