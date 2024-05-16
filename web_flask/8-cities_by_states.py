@@ -6,6 +6,7 @@ from flask import Flask
 from flask import render_template
 from models import *
 from models import storage
+from models.state import State
 app = Flask(__name__)
 
 
@@ -18,9 +19,13 @@ def teardown():
 @app.route('/cities_by_states', strict_slashes=False)
 def cities_by_states():
     """display the states and cities listed in alphabetical order"""
-    states = storage.all("State").values()
+    states = {}
+    if storage_t == 'db':
+        states = State.cities
+    else:
+        states = storage.all("State")
 
-    return render_template('8-cities_by_states.html', states=states)
+    return render_template('8-cities_by_states.html', states=states.values())
 
 
 if __name__ == '__main__':
