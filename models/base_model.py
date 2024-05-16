@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 from datetime import datetime
+import models
 import uuid
 from sqlalchemy import Column, DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
-from models import storage, storage_t
 
 
-if storage_t == "db":
+if models.storage_t == "db":
     Base = declarative_base()
 else:
     Base = object
@@ -17,7 +17,7 @@ class BaseModel:
 
     DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
 
-    if storage_t == "db":
+    if models.storage_t == "db":
         id = Column(String(60), nullable=False, primary_key=True)
         created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
         updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
@@ -53,8 +53,8 @@ class BaseModel:
         Updates the public instance attribute 'updated_at with the current time
         """
         self.updated_at = datetime.now()
-        storage.new(self)
-        storage.save()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """returns a dictionary representation of the instance"""
@@ -73,7 +73,7 @@ class BaseModel:
         Deletes the current instance from the storage by calling the
         method delete of models.storage
         """
-        storage.delete(self)
+        models.storage.delete(self)
 
 
     def __str__(self):
